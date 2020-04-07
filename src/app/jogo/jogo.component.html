@@ -1,0 +1,55 @@
+<div class="container mx-auto mb-5" style="width:85% !important">
+  <div class="row justify-content-center">
+    <div class="col-6 ">
+      <select #select class="custom-select custom-select-sm mt-3" (change)="onContentChange(select.value)">
+        <option value="{{i}}" *ngFor="let c of contents; let i = index">{{c.conteudo}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row my-2 pb-1 ml-1 justify-content-md-center">
+    <div class="col-lg-4 col-md-6 ">
+      <alert type="info" *ngIf="start === 'blue'">Time AZUL começa</alert>
+      <alert type="danger" *ngIf="start === 'red'">Time VERMELHO começa</alert>
+    </div>
+    <div class="col-lg-2 col-md-4 my-2" style="text-align: center">
+      <button type="button" class="btn btn-danger rounded-circle">
+        <b>{{ 8 - score.red + (start === "red" ? 1 : 0) }}</b>
+      </button>
+      <button type="button" class="btn" aria-label="Fechar">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <button type="button" class="btn btn-primary rounded-circle">
+        <b>{{ 8 - score.blue + (start === "blue" ? 1 : 0) }}</b>
+      </button>
+    </div>
+
+    <div class=" col-lg-2 col-md-6 col-6 ">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa name="unlock-alt"></fa>
+          </span>
+        </div>
+        <input type="number" #code class="form-control" [value]="codeSeed" (input)="codeSeed = $event.target.value" />
+      </div>
+
+    </div>
+    <div class="col-lg-1 col-md-2 col-2">
+      <button type="button" class="btn btn-success " (click)="onPlay();">
+        <fa name="play"></fa>
+      </button>
+    </div>
+    <div class=" col-lg-1 col-md-2 col-2 ">
+      <button type=" button" class="btn btn-info" (click)="showMestre()">
+        Mestre
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center" *ngIf="clean">
+    <div class="col-5 col-sm-3 col-md-3 col-lg-2 m-2 p-1" *ngFor="let t of text; let i = index">
+      <div class="w-100 h-100">
+        <app-card number="{{ i + 1 }}" word="{{ t }}" [front]="!master" group="{{ groups[i] }}"></app-card>
+      </div>
+    </div>
+  </div>
+</div>

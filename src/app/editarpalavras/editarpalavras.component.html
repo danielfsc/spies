@@ -1,0 +1,43 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h3>Editor de palavras do jogo</h3>
+    </div>
+    <div class="col-10 col-md-8">
+      <select #discipline class="custom-select custom-select-sm mt-3" (change)="onDisciplineChange(discipline.value)">
+        <option value="0"> Selecione a disciplina</option>
+        <option value="{{d.id}}" *ngFor="let d of disciplinas; let i = index">{{d.nome}}</option>
+      </select>
+
+    </div>
+    <div class="col-10 col-md-8" *ngIf="conteudos">
+      <select #content class="custom-select custom-select-sm mt-3" (change)="onContentChange(content.value)">
+        <option value="-1"> Selecione o conteúdo</option>
+        <option value="{{i}}" *ngFor="let c of conteudos; let i = index">{{c.conteudo}}</option>
+      </select>
+      <div *ngIf="!salvar.conteudoId">
+        <input placeholder="Novo Conteudo" type="text" [(ngModel)]="novoConteudo"> <button class="m-3"
+          (click)="addContent()">Criar conteúdo</button>
+      </div>
+    </div>
+
+
+
+    <div class="col-8 mt-3" *ngIf="salvar.conteudoId">
+      <input type="text" [(ngModel)]="salvar.conteudo"> <br>
+      <input placeholder="Nova palavra" type="text" [(ngModel)]="word">
+      <button class="mx-3" (click)="addWord()">Adicionar</button>
+      <button class="mx-3" (click)="saveWords()">Salvar</button>
+    </div>
+    <div class="col-10 my-3 " *ngIf="salvar.conteudoId">
+
+      <div class="row border justify-content-center">
+        <div class="p-1" *ngFor="let w of words; let i=index">
+
+          <a href="#" class="badge badge-success badge-font" (click)="changeWord(i)">{{w}} <fa name="times"
+              (click)="deleteWord(i)"></fa></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

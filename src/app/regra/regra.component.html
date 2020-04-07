@@ -1,0 +1,151 @@
+<div class="container my-3">
+  <h3>O que você vai precisar</h3>
+  <strong>2 dispositivos com acesso a internet.</strong> Preferencialmente, com tela grande o suficiente para que todos
+  os
+  jogadores acompanhem a tela. <br>
+
+  Costumo trabalhar com um notebook e um projetor, configurando para que a tela do computador seja diferente da tela do
+  projetor. A tela do notebook só pode ser vista pelos mestres, o projetor deve estar visível para todos os jogadores,
+  inclusive o mestre. <br>
+
+  <h3 class="mt-3"> Formando as equipes</h3>
+
+  Forme duas equipes com o mesmo número de jogadores em cada e no mínimo 2 jogadores por equipe. O jogo funciona com
+  qualquer número de jogadores em cada equipe, mas por experiência própria, o jogo é melhor aproveitado quando temos até
+  4
+  jogadores por equipe, sendo que o ótimo é 3 por equipe. Defina qual equipe será a equipe <span
+    style="color:blue; font-weight: bold;"> AZUL </span> e qual a
+  equipe
+  <span style="color:red; font-weight: bold;"> VERMELHA </span>.
+
+  Cada equipe vai escolher um dos seus membros para ser o <strong>MESTRE</strong> da equipe e os outros serão os
+  <strong>JOGADORES</strong>. <br>
+
+  <h3 class="mt-3">Configurando uma partida</h3>
+
+  Em cada tela abra um navegador, o jogo funciona em qualquer navegador mais recente (recomenda-se o Chrome ou o
+  Firefox). No menu superior, em <strong> Disciplinas </strong> você verá as disciplinas que já temos palavras
+  cadastradas. Selecione a disciplina desejada.<br>
+
+  A seguir você já estará na tela do jogo. Selecione o conteúdo que deseja jogar e no campo <fa name="unlock-alt"></fa>
+  escolha um número. Esse número é o código que será responsável por fazer o embaralhamento das palavras. Cada código
+  gera um jogo único. Nas duas telas você vai digitar o mesmo código, essa é a garantia que as duas telas serão
+  idênticas. Depois clique em <fa name="play"></fa> para que o sistema atualize as palavras. <br>
+
+  Os mestres devem clicar em mestre, para que o jogo revele as posições. É importante que os mestres possam ver a tela
+  dos jogadores para que eles vejam quais palavras já foram descobertas. Isso ajuda os mestres a serem mais precisos em
+  suas dicas. As cores das cartas indicam aos mestres quais palavras são do time azul, quais do time vermelho, quais são
+  neutras e qual é a carta do <b>assassino</b>. <br>
+
+
+  <h3 class="mt-3">Como jogar</h3>
+  Na parte superior da tela você verá:
+  <ul>
+    <li> Um seletor de conteúdos. </li>
+    <li>Quem começa o jogo. <div class="inline" style="width:300px">
+        <alert type="info">Time AZUL começa</alert>
+      </div>
+    </li>
+    <li>E quantas palavras estão faltando para cada time vencer. Repare que quem começa, sempre terá uma
+      palavra a mais.
+      <div class="my-3" style="text-align: left; width:300px;">
+        <button type="button" class="btn btn-danger rounded-circle">
+          <b>8</b>
+        </button>
+        <button type="button" class="btn" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <button type="button" class="btn btn-primary rounded-circle">
+          <b>9</b>
+        </button>
+      </div>
+    </li>
+    <li>O código da partida.
+      <div class="input-group w-25 my-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <fa name="unlock-alt"></fa>
+          </span>
+        </div>
+        <input type="number" #code class="form-control" />
+      </div>
+    </li>
+    <li>Um botão para reiniciar o jogo. Você deve mudar o código antes de reiniciar o jogo. <button type="button"
+        class="btn btn-success">
+        <fa name="play"></fa>
+      </button></li>
+    <li>O botão Mestre. <button type=" button" class="btn btn-info">
+        Mestre
+      </button></li>
+  </ul>
+  Uma vez que está definido quem começa, o mestre deste time deve dar uma pista (veja mais a frente como dar pistas) que
+  indica
+  quais
+  palavras são do seu time. Depois disso, os jogadores do time devem tentar descobrir quais eram as
+  palavras correspondentes a pista dada pelo mestre. <br> <br>
+  <div class="container">
+    <blockquote>
+      <em>Neste momento, o mestre não pode se manifestar de qualquer forma. Nem mesmo para dizer que era isso
+        que
+        ele tinha pensado. Alguns acertos podem ocorrer por pura sorte e se o mestre se manifestar será uma pista
+        indireta.</em></blockquote>
+  </div>
+  Os jogadores devem clicar na palavra na hora que tiverem certeza que a palavra corresponde a pista dada. Na hora que
+  eles clicarem na palavra o fundo da carta vai mudar de cor revelando a qual time pertence.
+  <br>
+  A partir daí há 3 possibilidades:
+  <ol>
+    <li>Se o fundo for da cor do time que está jogando, ele pode continuar a adivinhar a próxima, <strong>até o limite
+        definido pela pista;</strong>
+      <div class="row justify-content-center">
+        <div class="col-5 col-md-3 m-2">
+          <app-card [front]="cartas" word="Time<br>Vermelho" number="2" group="red"></app-card>
+        </div>
+        <div class="col-5 col-md-3 m-2">
+          <app-card [front]="cartas" word="Time<br>Azul" number="3" group="blue"></app-card>
+        </div>
+      </div>
+    </li>
+    <li>Se o fundo for da cor do inimigo ou for carta de cívil, o time perde a vez e
+      passa para o outro time. Veja que se ele acertou um agente inimigo, ele estará ajudando o inimigo, por isso eles
+      devem ser cautelosos;
+      <div class="row justify-content-center">
+        <div class="col-5 col-md-3 my-3">
+          <app-card [front]="cartas" word="Carta de<br>Civil" number="1" group="civilian"></app-card>
+        </div>
+      </div>
+    </li>
+    <li>Se for a carta do assassino, fundo for cinza escuro, <strong>o time perde automaticamente o jogo. Cuidado para
+        não dar dica que leve ao
+        assassino.</strong>
+      <div class="row justify-content-center">
+        <div class="col-5 col-md-3 my-3">
+          <app-card [front]="cartas" word="Carta do<br>Assassino" number="1" group="assassin"></app-card>
+        </div>
+      </div>
+    </li>
+  </ol>
+  O jogo segue alternando os times até que um deles tenha descoberto todas os agentes espiões (palavras). <br>
+
+  <h3 class="mt-3">Dando as pistas</h3>
+  A pista é sempre composta por 2 elementos: uma palavra, conceito ou personalidade (relacionado ao conteúdo) e um
+  número. A pista deve respeitar algumas regras: <br>
+  <ol>
+    <li>A pista deve ter apenas uma palavra ou, em caso de conceito, o nome do conceito como "Terceira Lei de Newton".
+      No caso de nome de personalidade, o nome pode ser completo, como "Albert Einstein" ou "Nikolas Tesla";</li>
+    <li> A dica nunca pode ser uma palavra que pode ser clicada. Se uma palavra saiu do jogo, foi revelado o seu outro
+      lado, ela passa a ser uma palavra permitida.</li>
+  </ol>
+  O número está relacionado a quantas palavras no jogo estão relacionadas a pista que você deu. <br>
+
+  <em>Por exemplo: Entre palavras do seu time estão "<strong>Massa</strong>" e "<strong>Aceleração</strong>". As duas
+    estão relacionadas pela segunda lei de newton e na equação do cálculo de força, então você dá a dica "<strong>Força
+      2</strong>". </em>
+
+  <strong>Atenção:</strong> o mestre não pode apontar para a tela e não pode falar nada além da pista que está dando.
+  Além disso, não deve demonstrar nenhuma reação ao acerto ou erro. <br>
+
+  Os jogadores podem tentar adivinhar até o máximo de uma palavra a mais do que o número que foi dito pelo mestre.
+  Portanto, no exemplo anterior os jogadores podem tentar adivinhar até 3 palavras. Isso permite que eles tentem acertar
+  palavras de pistas anteriores que tenham tido dúvida e errado.
+</div>

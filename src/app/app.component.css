@@ -1,0 +1,37 @@
+/* .card-flip>div {
+  backface-visibility: hidden;
+  transition: transform 300ms;
+  transition-timing-function: linear;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+}
+
+.card-flip:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+.card-flip:hover .card-back {
+  transform: rotateY(0deg);
+} */
+
+.back {
+  background: linear-gradient(277deg, rgba(213, 213, 213, 0.02) 0%, rgba(213, 213, 213, 0.02) 50%, rgba(42, 42, 42, 0.02) 50%, rgba(42, 42, 42, 0.02) 100%),
+    linear-gradient(295deg, rgba(73, 73, 73, 0.03) 0%, rgba(73, 73, 73, 0.03) 50%, rgba(229, 229, 229, 0.03) 50%, rgba(229, 229, 229, 0.03) 100%),
+    linear-gradient(145deg, rgba(77, 77, 77, 0.01) 0%, rgba(77, 77, 77, 0.01) 50%, rgba(123, 123, 123, 0.01) 50%, rgba(123, 123, 123, 0.01) 100%),
+    linear-gradient(54deg, rgba(51, 51, 51, 0.03) 0%, rgba(51, 51, 51, 0.03) 50%, rgba(29, 29, 29, 0.03) 50%, rgba(29, 29, 29, 0.03) 100%),
+    linear-gradient(170deg, rgba(9, 9, 9, 0.02) 0%, rgba(9, 9, 9, 0.02) 50%, rgba(243, 243, 243, 0.02) 50%, rgba(243, 243, 243, 0.02) 100%),
+    linear-gradient(264deg, rgba(214, 214, 214, 0.01) 0%, rgba(214, 214, 214, 0.01) 50%, rgba(153, 153, 153, 0.01) 50%, rgba(153, 153, 153, 0.01) 100%),
+    linear-gradient(90deg, rgb(99, 48, 222), rgb(76, 212, 233));
+}

@@ -1,0 +1,25 @@
+<div class="card-flip w-100 h-100 " (click)="toogle(group)">
+  <div class="card-front text-black rounded shadow " [class.show]="!front">
+    <div class="card-body align-middle tetx-center p-1 row">
+      <div class="col-lg-12 col-1">
+        <span class="d-flex">{{ number }}</span>
+      </div>
+      <div class="col-lg-12 col-9">
+        <p class="card-text " [innerHTML]="word">
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card-back m-1 rounded {{ group }} " [class.showback]="!front">
+    <div class="card-body p-1 row">
+      <div class="col-lg-12 col-1">
+        <span class="d-flex">{{ number }}</span>
+      </div>
+      <div class="col-lg-12 col-9">
+        <span class="card-text " [innerHTML]="word">
+
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
