@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  crudURL: "http://localhost/crud",
+  // crudURL: "http://localhost/crud",
+  crudURL: "https://girardi.blumenau.ufsc.br/api",
   production: false
 };
 

@@ -7,7 +7,7 @@ import { EditarpalavrasComponent } from "./editarpalavras/editarpalavras.compone
 import { EditarimagensComponent } from "./editarimagens/editarimagens.component";
 
 const routes: Routes = [
-  { path: "", component: EditarimagensComponent },
+  { path: "", component: StartComponent },
   { path: "contentEdition", component: EditarpalavrasComponent },
   { path: "jogo", component: JogoComponent },
   { path: "jogo/:id", component: JogoComponent },

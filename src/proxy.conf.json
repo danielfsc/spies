@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://girardi.blumenau.ufsc.br",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
